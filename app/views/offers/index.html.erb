@@ -1,0 +1,11 @@
+<h1>this is home page</h1>
+<div><% @offers.each do |offer| %>
+<ul>
+<li><p>NAME: <%= offer.user.email %></li></p>
+<li><p>localisation: <%= offer.localisation %></li></p>
+<li><p> disponibility: <%= offer.disponibility %></li></p>
+</ul>
+<%= link_to  "see this offer",offer_path(offer) %>
+<% end %>
+</div>
+
