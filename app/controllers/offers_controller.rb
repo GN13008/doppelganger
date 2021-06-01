@@ -1,6 +1,17 @@
 class OffersController < ApplicationController
   def index
-    @offers = Offer.all
+    # params where: where:
+    if params[:where] == ""
+      @offers = Offer.all
+      @title = "All Result - #{@offers.count} doppels available"
+    else
+      @offers = Offer.where(localisation: params[:where])
+      if @offers.count == 0
+        @title = "Sorry, there are no doppel available in #{params[:where]}"
+      else
+        @title = "There are #{@offers.count} doppels available in #{params[:where]}"
+      end
+    end
   end
 
   def new
