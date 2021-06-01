@@ -1,3 +1,16 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "dashboard";
+
+
+.search-bar {
+    align-items: center;
+    margin: 15px 0;
+    .search-form-control {
+        display: flex;
+    }
+    
+    .form-control{
+        margin: 0 15px;
+    } 
+}
