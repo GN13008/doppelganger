@@ -76,12 +76,12 @@
                 </div>
             </div>
             <div class="div-btn">
-                <% if current_user.offers.count != 0 %> 
-                    <%= link_to edit_offer_path(current_user) do%>
-                    <p class="btn btn-flat">Edit</p>
-                    <% end %>
-                <% else %>
+                <% if current_user.offers.count == 0 %>
                     <a class="btn btn-flat" href="/offers/new">Create your offer</a>
+                <% else %>
+                    <%= link_to edit_offer_path(current_user) do%>
+                        <p class="btn btn-flat">Edit</p>
+                    <% end %>                    
                 <% end %>
             </div>
             
