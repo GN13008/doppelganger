@@ -1,1 +1,25 @@
 // Specific CSS for your home-page
+.presentation {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 20px auto;
+}
+
+.examples {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.explanation-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px auto;
+    
+}
+
+.middle {
+    align-items: center;
+}
