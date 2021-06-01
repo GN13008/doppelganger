@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="div-btn">  
-                <a class="btn btn-flat" href="#">Hire another Doppel</a>
+                <a class="btn btn-flat" href="/offers">Hire another Doppel</a>
             </div>
             
         </div>
@@ -76,10 +76,12 @@
                 </div>
             </div>
             <div class="div-btn">
-                <% if true %>
-                    <a class="btn btn-flat" href="#">Edit your offer</a>
+                <% if current_user.offers.count != 0 %> 
+                    <%= link_to edit_offer_path(current_user) do%>
+                    <p class="btn btn-flat">Edit</p>
+                    <% end %>
                 <% else %>
-                    <a class="btn btn-flat" href="#">Create your offer</a>
+                    <a class="btn btn-flat" href="/offers/new">Create your offer</a>
                 <% end %>
             </div>
             
