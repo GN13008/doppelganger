@@ -1,11 +1,14 @@
-<h1>this is home page</h1>
-<div><% @offers.each do |offer| %>
-<ul>
-<li><p>NAME: <%= offer.user.email %></li></p>
-<li><p>localisation: <%= offer.localisation %></li></p>
-<li><p> disponibility: <%= offer.disponibility %></li></p>
-</ul>
-<%= link_to  "see this offer",offer_path(offer) %>
+<h1>Result</h1>
+<div>
+<% @offers.each do |offer| %>
+  <div class="card-product">
+    <img src='<%= cl_image_path offer.user.photo.key, height: 300, crop: :fill %>' />
+    <div class="card-product-infos">
+      <h2><%= offer.user.name %></h2>
+      <p>localisation: <strong><%= offer.localisation %></strong></p>
+      <p>disponibility: <strong><%= offer.disponibility %></strong></p>
+      <%= link_to  "see this offer",offer_path(offer) %>
+    </div>
+  </div>
 <% end %>
 </div>
-
