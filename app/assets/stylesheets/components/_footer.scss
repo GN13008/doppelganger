@@ -9,6 +9,13 @@
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
+
+    .footer-btn {
+      background-color: transparent;
+    }
+    .footer-btn:hover {
+      background-color: transparent;
+    }
   }
   .footer-links {
     display: flex;
