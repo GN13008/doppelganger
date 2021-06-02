@@ -1,9 +1,12 @@
-<h1>la aussi ca marche</h1>
-
-<%= simple_form_for(@offer) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :disponibility %>
-  <%= f.input :description %>
-  <%= f.input :localisation %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <h1>Create your offer</h1>
+    <div class="search-form-control form-group">
+          <%= simple_form_for(@offer) do |f| %>
+            <%= f.input :title %>
+            <%= f.input :disponibility %>
+            <%= f.input :description %>
+            <%= f.input :localisation %>
+            <%= f.submit class:"btn-flat", id:"update-btn"%>
+          <% end %>
+    </div>
+</div>
