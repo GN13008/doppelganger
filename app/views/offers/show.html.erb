@@ -5,11 +5,11 @@
     <div class= "d-flex">
       <div class= "col-8">
         <div class= "ofr-desc d-flex">
-         <% if @offer.user.photo.attached? %>
-              <%= cl_image_tag @offer.user.photo.key, class: "", id: "" %>
-            <% else %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "", id: "" %>
-            <% end %>
+          <% if @offer.user.photo.attached? %>
+            <%= cl_image_tag @offer.user.photo.key, class: "", id: "" %>
+          <% else %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "", id: "" %>
+          <% end %>
 
           <ul>
             <li><p>Name : <%= @offer.user.name %></p></li>
