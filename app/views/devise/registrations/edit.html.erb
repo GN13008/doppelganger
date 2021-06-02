@@ -1,44 +1,92 @@
-<div><h1>Sucessfully logged in</h1></div>
-<div class="container-user-edit">
-  <div class= "edit-user">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
-      <div class="col-6 d-flex">
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= f.error_notification %>
-
-          <div class="form-inputs">
-            <%= f.input :email, required: true, autofocus: true %>
-            <%= f.input :name %>
-            <%= f.input :age %>
-            <%= f.input :photo, as: :file %>
-
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-            <% end %>
-
-            <%= f.input :password,
-                        hint: "leave it blank if you don't want to change it",
-                        required: false,
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                        required: false,
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.input :current_password,
-                        hint: "we need your current password to confirm your changes",
-                        required: true,
-                        input_html: { autocomplete: "current-password" } %>
-          </div>
-
-          <div class="form-actions">
-            <%= f.button :submit, "Update" %>
-          </div>
-        <% end %>
-      </div>
+<div class="container d-flex justify-content-evenly my-4">
+  <div >
+    <h3 class="text-center my-4">Sucessfully logged in</h1>
+    <div class="social mt-5">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
     </div>
+  </div>
+
+  <!-- Avatar Profil -->
+  <div>
+     <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar-profil", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% else %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-profil", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% end %>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="d-flex flex-column">
+    <a class="btn btn-flat my-3" href="/offers">Hire another Doppel</a>
+    <a class="btn btn-flat mt-5" href="/offers/new">Become a doppel</a>
+  </div>
 </div>
 
-<h3>Cancel my account</h3>
+<!-- Profile Name -->
+<div>
+  <h1 class="text-center"><%= current_user.name %></h1>
+</div>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+
+<!-- Profile Container -->
+<div class="container d-flex py-5 justify-content-center">
+  <!-- Edit Part of user Profile -->
+  <div class="border border dark py-3 col-6 mr-25">
+      <h2 class="text-center">Edit <%= resource_name.to_s.humanize %></h2>
+        <div>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs w-75 mx-3">
+              <%= f.input :email, required: true, autofocus: true %>
+              <%= f.input :name %>
+              <%= f.input :age %>
+              <%= f.input :photo, as: :file %>
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+              <% end %>
+
+              <%= f.input :password,
+                          hint: "leave it blank if you don't want to change it",
+                          required: false,
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.input :password_confirmation,
+                          required: false,
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.input :current_password,
+                          hint: "we need your current password to confirm your changes",
+                          required: true,
+                          input_html: { autocomplete: "current-password" } %>
+              <div class="btn btn-flat mx-2 w-100">
+                <%= f.button :submit, "Update" %>
+                <% end %>
+              </div>
+            </div>
+        </div>
+  </div>
+  <!-- Profile Bio -->
+  <div class="border border dark py-3 col-6 ml-25">
+    <h3 class="text-center">My bio</h3>
+    <p class="text-center py-3 mx-3">Hi, My name is John and I love life, but sometime I just wished I had
+    more time to do things that I truly enjoy.
+    I hate doing things I don’t like. I just  wish someone will do them
+    for me while I enjoy myself, I can’t wait to find my doppel !</p>
+  </div>
+  <div>
+
+  </div>
+</div>
+
+<div class="container py-3">
+  <h3>Cancel my account</h3>
+
+  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+  <%= link_to "Back", :back %>
+</div>
