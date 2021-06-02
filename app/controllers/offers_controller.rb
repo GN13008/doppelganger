@@ -25,7 +25,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(User.find(params[:id]).offer_ids.first)
   end
   def update
-    @offer = Offer.find(User.find(params[:id]).offer_ids.first)
+    @offer = Offer.find(params[:id])
     @offer.update(offer_params)
     redirect_to dashboard_path
   end
