@@ -8,7 +8,7 @@
           <% if @offer.user.photo.attached? %>
             <%= cl_image_tag @offer.user.photo.key, class: "offer-pic", id: "" %>
           <% else %>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "offer-pic", id: "" %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "offer-pic", style:"object-fit: cover"%>
           <% end %>
 
           <ul>
@@ -42,19 +42,23 @@
       <div class= "col-4 text-center">
         <div class="info-card">
           <h2>Informations:</h2>
-          <div class="info-card-right">
-          <%= simple_form_for [ @offer, @reservation ] do |f| %>
+          
+           <%= simple_form_for [ @offer, @reservation ] do |f| %>
             <%= f.input :start_date %>
             <%= f.input :end_date %>
+            <div class="info-card-right">
             <ul>
               <li><p>80$/h</p></li>
               <li><p>3*80 = 160$</p></li>
               <li><p>3*80 = 160$</p></li>
               <li><p> Extras Uber: 40$</p></li>
             </ul>
-            <%= f.submit "Book This Doppel", class: "btn btn-primary" %>
+            </div>
+            
+              <%= f.submit "Book This Doppel", class:"btn btn-flat"%>
+            
           <% end %>
-          </div>
+          
         </div>
       </div> 
     </div>
