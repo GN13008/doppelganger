@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <%= link_to "/", class: "navbar-brand" do %>
     <%= image_tag "logo.png" %>
     <% end %>
@@ -11,11 +11,8 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", root_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Your Dashboard", dashboard_path, class: "nav-link" %>
+        <li class="nav-item" id="navbar-button-padding">
+          <%= link_to "Your Dashboard", dashboard_path, class: "nav-link btn btn-flat" %>
         </li>
         <%# Try the bootstrap V5 dropdown %>
         <div class="dropdown dropstart">
