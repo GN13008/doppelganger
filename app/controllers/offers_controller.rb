@@ -20,6 +20,7 @@ class OffersController < ApplicationController
   def show
     @offer = Offer.find(params[:id])
     @reviews = @offer.reviews
+    @reservation = Reservation.new
   end
   def edit
     @offer = Offer.find(User.find(params[:id]).offer_ids.first)
