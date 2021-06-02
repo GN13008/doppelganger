@@ -1,13 +1,13 @@
 <div class="dashboard">
     <h2 style="margin: 30px auto;display: flex; justify-content: space-around;">My doppels activity</h2>
     <div class="body">
-        
+
         <div class="my-doppels">
-            <h3>Your reservations</h3>
+            <h3 class="py-3">Your reservations</h3>
             <div class="future">
             <%# Just demo change this with a each of the instance %>
                 <div class="card-product">
-                    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                    <%= image_tag "logo.png" %>
                     <div class="card-product-infos">
                         <h2>Product name</h2>
                         <p>Product description with <strong>relevant info</strong> only.</p>
@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="card-product">
-                    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                    <%= image_tag "logo.png" %>
                     <div class="card-product-infos">
                         <h2>Product name</h2>
                         <p>Product description with <strong>relevant info</strong> only.</p>
@@ -24,10 +24,10 @@
                 </div>
             <%# until there %>
             </div>
-            <h3>Your past Doppel bookings</h3>
+            <h3 class="py-3">Your past Doppel bookings</h3>
             <div class="past">
                 <div class="card-product">
-                    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                    <%= image_tag "logo.png" %>
                     <div class="card-product-infos">
                         <h2>Product name</h2>
                         <p>Product description with <strong>relevant info</strong> only.</p>
@@ -35,20 +35,20 @@
                     </div>
                 </div>
             </div>
-            <div class="div-btn">  
+            <div class="div-btn">
                 <a class="btn btn-flat" href="/offers">Hire another Doppel</a>
             </div>
-            
+
         </div>
 
         <div class="line">
-        
+
         </div>
         <div class="missions">
-            <h3>Your next missions</h3>
+            <h3 class="py-3">Your next missions</h3>
             <div class="validated">
                 <div class="card-product">
-                    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                    <%= image_tag "logo.png" %>
                     <div class="card-product-infos">
                         <h2>Product name</h2>
                         <p>Product description with <strong>relevant info</strong> only.</p>
@@ -56,10 +56,10 @@
                     </div>
                 </div>
             </div>
-            <h3>These missions are  waiting for you!</h3>
+            <h3 class="py-3">These missions are  waiting for you!</h3>
             <div class="waiting">
                 <div class="card-product">
-                    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                    <%= image_tag "logo.png" %>
                     <div class="card-product-infos">
                         <h2>Product name</h2>
                         <p>Product description with <strong>relevant info</strong> only.</p>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="card-product">
-                    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                    <%= image_tag "logo.png" %>
                     <div class="card-product-infos">
                         <h2>Product name</h2>
                         <p>Product description with <strong>relevant info</strong> only.</p>
@@ -81,10 +81,10 @@
                 <% else %>
                     <%= link_to edit_offer_path(current_user) do%>
                         <p class="btn btn-flat">Edit</p>
-                    <% end %>                    
+                    <% end %>
                 <% end %>
             </div>
-            
+
         </div>
     </div>
 </div>
