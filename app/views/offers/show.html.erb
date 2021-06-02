@@ -1,31 +1,30 @@
 <div class="container">
-  <h1>Offer : Save the hostages from Hans</h1>
+  <h1>Offer: <%= @offer.title %></h1>
   <div class="show">
   
     <div class= "d-flex">
       <div class= "col-8">
         <div class= "ofr-desc d-flex">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Poster-sized_portrait_of_Barack_Obama.jpg" alt="barak_obama" width= 200px>
+         <% if @offer.user.photo.attached? %>
+              <%= cl_image_tag @offer.user.photo.key, class: "", id: "" %>
+            <% else %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "", id: "" %>
+            <% end %>
+
           <ul>
-            <li><p>Location: Marseille</p></li>
+            <li><p>Name : <%= @offer.user.name %></p></li>
+            <li><p>Location : <%= @offer.localisation %></p></li>
             <li><p>Height : 1,83 M</p></li>
             <li><p>Body type : Muscular</p></li>
             <li><p>Average Rating : 4,5</p></li>
-            <li><p>Disponibility : Mardi</p></li>
+            <li><p>Disponibility : <%= @offer.disponibility %></p></li>
             <li><strong><p>resemblance : 80%</p></strong></li>
           </ul>
         </div>
 
         <div>
           <h2>Description</h2>
-            <p>McClane evades detection of the group and hides throughout Nakatomi Plaza,
-              systematically killing the group members as he attempts to disrupt their plot. Hans,
-              aware of John's presence and his name, eventually identifies Holly as John's wife
-              and takes her as his personal hostage. At the climax of the film, a badly injured
-              McClane locates Hans and Holly near the vault on the 30th floor. 
-              Hans is shot by McClane and falls to his death after stumbling backwards through a 
-              shattered window.
-            </p>
+            <p> <%= @offer.description %></p>
         </div>
 
         <div class="reviews">
