@@ -2,13 +2,14 @@
   <h1>Edit your profile</h1>
         <div class="search-form-control form-group">
           <%= simple_form_for(@offer) do |f| %>
-            <%= f.input :title, class:"form-control string required", type:"text", name:"where", placeholder:"Where"%>
-            <%= f.input :disponibility, class:"form-control string required", type:"text", name:"disponibility", placeholder:"disponibility" %>
-            <%= f.input :description, class:"form-control string required", type:"text", name:"description", placeholder: "description" %>
-            <%= f.input :localisation, class:"form-control string required", type:"text", name:"localisation", placeholder:"localisation" %>
+            <%= f.input :title, class:"form-control string required" %>
+            <%= f.input :disponibility, class:"form-control string required" %>
+            <%= f.input :description, class:"form-control string required" %>
+            <%= f.input :localisation, class:"form-control string required" %>
             <div class="center">
               <%= f.submit name:"button", type:"submit", class:"btn-flat", id:"update-btn"%>
             </div>
+            <%= link_to  "Back to dashboard", dashboard_path %>
           <% end %>
         </div>
 </div>
