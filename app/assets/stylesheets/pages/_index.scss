@@ -1,6 +1,8 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "dashboard";
+@import "/offers/edit";
+
 
 
 .search-bar {
@@ -10,7 +12,9 @@
         display: flex;
     }
     
-    .form-control{
-        margin: 0 15px;
-    } 
+    
 }
+
+.form-control{
+    margin: 15px 15px;
+} 
