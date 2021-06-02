@@ -6,9 +6,9 @@
       <div class= "col-8">
         <div class= "ofr-desc d-flex">
           <% if @offer.user.photo.attached? %>
-            <%= cl_image_tag @offer.user.photo.key, class: "", id: "" %>
+            <%= cl_image_tag @offer.user.photo.key, class: "offer-pic", id: "" %>
           <% else %>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "", id: "" %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "offer-pic", id: "" %>
           <% end %>
 
           <ul>
