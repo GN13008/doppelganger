@@ -1,0 +1,41 @@
+.show {
+    h2 {
+        margin: 15px 15px;
+    }
+
+    h1 {
+        margin: 20px 10px;
+    }
+
+    ul {
+        list-style: none;
+    }
+    .grey-button {
+        margin-top: 15px;
+    }
+    .reviews {
+        margin: 15px 0;
+    }
+}
+
+.info-card {
+    margin: 30px 15px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+
+    .info-card-right {
+        text-align: right;
+        margin: 30px;
+    }
+}
+
+.confirm-reservation {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.confirm-reservation:hover {
+    color: black;
+}

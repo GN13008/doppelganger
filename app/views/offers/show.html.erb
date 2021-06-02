@@ -1,58 +1,61 @@
 <div class="container">
   <h1>Offer : Save the hostages from Hans</h1>
-  <div class= "d-flex">
-    <div class= "col-8">
-      <div class= "ofr-desc d-flex">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Poster-sized_portrait_of_Barack_Obama.jpg" alt="barak_obama" width= 200px>
-        <ul>
-          <li><p>Location: Marseille</p></li>
-          <li><p>Height : 1,83 M</p></li>
-          <li><p>Body type : Muscular</p></li>
-          <li><p>Average Rating : 4,5</p></li>
-          <li><p>Disponibility : Mardi</p></li>
-        </ul>
-      </div>
+  <div class="show">
+  
+    <div class= "d-flex">
+      <div class= "col-8">
+        <div class= "ofr-desc d-flex">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Poster-sized_portrait_of_Barack_Obama.jpg" alt="barak_obama" width= 200px>
+          <ul>
+            <li><p>Location: Marseille</p></li>
+            <li><p>Height : 1,83 M</p></li>
+            <li><p>Body type : Muscular</p></li>
+            <li><p>Average Rating : 4,5</p></li>
+            <li><p>Disponibility : Mardi</p></li>
+            <li><strong><p>resemblance : 80%</p></strong></li>
+          </ul>
+        </div>
 
-      <div>
-        <h2>Description</h2>
-          <p>McClane evades detection of the group and hides throughout Nakatomi Plaza,
-            systematically killing the group members as he attempts to disrupt their plot. Hans,
-            aware of John's presence and his name, eventually identifies Holly as John's wife
-            and takes her as his personal hostage. At the climax of the film, a badly injured
-            McClane locates Hans and Holly near the vault on the 30th floor. 
-            Hans is shot by McClane and falls to his death after stumbling backwards through a 
-            shattered window.
-          </p>
-      </div>
+        <div>
+          <h2>Description</h2>
+            <p>McClane evades detection of the group and hides throughout Nakatomi Plaza,
+              systematically killing the group members as he attempts to disrupt their plot. Hans,
+              aware of John's presence and his name, eventually identifies Holly as John's wife
+              and takes her as his personal hostage. At the climax of the film, a badly injured
+              McClane locates Hans and Holly near the vault on the 30th floor. 
+              Hans is shot by McClane and falls to his death after stumbling backwards through a 
+              shattered window.
+            </p>
+        </div>
 
-      <div><h2>Reviews</h2>
-        <div class= "reviews-cards">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class= "review-card"><!-- on fera le each ici  -->
-            <h2>Product name</h2>
-            <p>Product description with <strong>relevant info</strong> only.</p>
-            
+        <div class="reviews">
+          <h2>Reviews</h2>
+          <div class= "reviews-cards">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg" />
+            <div class= "review-card"><!-- on fera le each ici  -->
+              <h2>Lewis</h2>
+              <p>Awesome dont need to sign autograph anymore</p>
+            </div>
           </div>
         </div>
 
-      
-      
       </div>
-
-
-      <%= link_to  "back to page home ", offers_path %>
-    </div>
-    <div class= "col-4">
-      <h2>Informations :</h2>
-      <ul>
-        <li><p>80$/h</p></li>
-        <li><p>3*80 = 160$</p></li>
-        <li><p>3*80 = 160$</p></li>
-        <li><p> Extras Uber: 40$</p></li>
-      </ul>
-      <button type="button" class="btn grey-button" >confirm reservation</button>
-    
-    
+      <div class= "col-4 text-center">
+        <div class="info-card">
+          <h2>Informations:</h2>
+          <div class="info-card-right">
+          <ul>
+            <li><p>80$/h</p></li>
+            <li><p>3*80 = 160$</p></li>
+            <li><p>3*80 = 160$</p></li>
+            <li><p> Extras Uber: 40$</p></li>
+          </ul>
+          </div>
+          <div class="btn grey-button ">
+            <%= link_to 'confirm reservation', dashboard_path(current_user), class:"confirm-reservation" %>
+          </div>
+        </div>
+      </div> 
     </div>
   </div>
 </div>
