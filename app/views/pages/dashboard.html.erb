@@ -1,90 +1,210 @@
 <div class="dashboard">
     <h2 style="margin: 30px auto;display: flex; justify-content: space-around;">My doppels activity</h2>
     <div class="body">
-
-        <div class="my-doppels">
-            <h3 class="py-3">Your reservations</h3>
-            <div class="future">
-            <%# Just demo change this with a each of the instance %>
+    <%# START - Partie reservation et historique %>
+    <div class="my-doppels">
+        <h3 class="py-3">Your reservations</h3>
+        <div class="future">
+            <% if (current_user.reservations.where(status: "demand").count != 0 || current_user.reservations.where(status: "accept").count != 0) %>
+                <% current_user.reservations.where(status: "demand").first(2).each do |reservation| %>
+                    <div class="card-product">
+                        <% if reservation.offer.user.photo.attached? %>
+                            <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                        <% else %>
+                            <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                        <% end %>
+                        <div class="card-product-infos">
+                            <h2><%= reservation.offer.title %> from : <%= reservation.offer.user.name %></h2>
+                            <p><%= reservation.offer.description %></p>
+                            <p>Status : <%= reservation.status %></p>
+                            <%= link_to "Cancel",
+                                reservation_path(reservation, status: "canceled"),
+                                method: :patch,
+                                data: { confirm: "Are you sure?" }, 
+                                class: 'down-right choice' %>
+                        </div>
+                    </div>
+                <% end %>
+                <% current_user.reservations.where(status: "accept").first(2).each do |reservation| %>
+                    <div class="card-product">
+                        <% if reservation.offer.user.photo.attached? %>
+                            <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                        <% else %>
+                            <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                        <% end %>
+                        <div class="card-product-infos">
+                            <h2><%= reservation.offer.title %> from : <%= reservation.offer.user.name %></h2>
+                            <p><%= reservation.offer.description %></p>
+                            <p>Status : <%= reservation.status %></p>
+                            <%= link_to "Cancel",
+                                reservation_path(reservation, status: "canceled"),
+                                method: :patch,
+                                data: { confirm: "Are you sure?" }, 
+                                class: 'down-right choice' %>
+                        </div>
+                    </div>
+                <% end %>
+            <% else %>
                 <div class="card-product">
-                    <%= image_tag "logo.png" %>
+                    <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                     <div class="card-product-infos">
-                        <h2>Product name</h2>
-                        <p>Product description with <strong>relevant info</strong> only.</p>
-                        <a href="#" class="down-right">Cancel</a>
+                        <h2>No reservation YET - Don't hesitate and hire a doppel !!!</h2>
+                        <p>So many doppel on this app</p>
                     </div>
                 </div>
+            <% end %>
+        </div>
+        <h3 class="py-3">Your past Doppel bookings</h3>
+        <% if (current_user.reservations.where(status: "canceled").count != 0 || current_user.reservations.where(status: "passed").count != 0 || current_user.reservations.where(status: "decline").count != 0) %>
+            <% current_user.reservations.where(status: "passed").first(2).each do |reservation| %>
                 <div class="card-product">
-                    <%= image_tag "logo.png" %>
+                    <% if reservation.offer.user.photo.attached? %>
+                        <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <% else %>
+                        <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <% end %>
                     <div class="card-product-infos">
-                        <h2>Product name</h2>
-                        <p>Product description with <strong>relevant info</strong> only.</p>
-                        <a href="#" class="down-right">Cancel</a>
+                        <h2><%= reservation.offer.title %> from : <%= reservation.offer.user.name %></h2>
+                        <p><%= reservation.offer.description %></p>
+                        <p>Status : <%= reservation.status %></p>
                     </div>
                 </div>
-            <%# until there %>
-            </div>
-            <h3 class="py-3">Your past Doppel bookings</h3>
-            <div class="past">
+            <% end %>
+            <% current_user.reservations.where(status: "decline").first(2).each do |reservation| %>
                 <div class="card-product">
-                    <%= image_tag "logo.png" %>
+                    <% if reservation.offer.user.photo.attached? %>
+                        <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <% else %>
+                        <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <% end %>
                     <div class="card-product-infos">
-                        <h2>Product name</h2>
-                        <p>Product description with <strong>relevant info</strong> only.</p>
-                        <a href="#" class="down-right">Leave a review</a>
+                        <h2><%= reservation.offer.title %> from : <%= reservation.offer.user.name %></h2>
+                        <p><%= reservation.offer.description %></p>
+                        <p>Status : <%= reservation.status %></p>
                     </div>
                 </div>
+            <% end %>
+            <% current_user.reservations.where(status: "canceled").first(2).each do |reservation| %>
+                <div class="card-product">
+                    <% if reservation.offer.user.photo.attached? %>
+                        <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <% else %>
+                        <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <% end %>
+                    <div class="card-product-infos">
+                        <h2><%= reservation.offer.title %> from : <%= reservation.offer.user.name %></h2>
+                        <p><%= reservation.offer.description %></p>
+                        <p>Status : <%= reservation.status %></p>
+                    </div>
+                </div>
+            <% end %>
+        <% else %>
+            <div class="card-product">
+                <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <div class="card-product-infos">
+                    <h2>Your hitory is empty :(</h2>
+                    <p>Lets go hire some doppel !</p>
+                </div>
             </div>
-            <div class="div-btn">
-                <a class="btn btn-flat" href="/offers?utf8=✓&where=&when=&button=#index">Hire another Doppel</a>
-            </div>
-
+        <% end %>
+        <% @reservations.each do |reservation| %>
+        <% end %>
+        <div class="div-btn">
+            <a class="btn btn-flat" href="/offers?utf8=✓&where=&when=&button=#index">Hire another Doppel</a>
         </div>
 
-        <div class="line">
+    </div>
+    <%# END - Partie reservation et historique %>
+    <div class="line">
 
-        </div>
-        <div class="missions">
-            <h3 class="py-3">Your next missions</h3>
+    </div>
+    <%# START - Partie reservation et historique %>
+    <div class="missions">
+        <h3 class="py-3">Your next missions</h3>
+        <% unless current_user.offers == [] %>
             <div class="validated">
-                <div class="card-product">
-                    <%= image_tag "logo.png" %>
-                    <div class="card-product-infos">
-                        <h2>Product name</h2>
-                        <p>Product description with <strong>relevant info</strong> only.</p>
-                        <a href="#" class="down-right">Cancel</a>
+                <% if current_user.offers.first.reservations.where(status: "accept").count != 0 %>
+                    <% current_user.offers.first.reservations.where(status: "accept").first(2).each do |reservation| %>
+                        <div class="card-product">
+                            <% if reservation.offer.user.photo.attached? %>
+                                <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                            <% else %>
+                                <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                            <% end %>
+                            <div class="card-product-infos">
+                                <h2><%= reservation.offer.title %> from : <%= reservation.offer.user.name %></h2>
+                                <p><%= reservation.offer.description %></p>
+                                <p>Status : <%= reservation.status %></p>
+                            </div>
+                        </div>
+                    <% end %>
+                <% else %>
+                    <div class="card-product">
+                        <%= image_tag "logo.png" %>
+                        <div class="card-product-infos">
+                            <h2>No @reservations Yet !</h2>
+                            <p>Perhaps you should change your profil ?</p>
+                        </div>
                     </div>
-                </div>
+                <% end %>
             </div>
             <h3 class="py-3">These missions are  waiting for you!</h3>
             <div class="waiting">
-                <div class="card-product">
-                    <%= image_tag "logo.png" %>
-                    <div class="card-product-infos">
-                        <h2>Product name</h2>
-                        <p>Product description with <strong>relevant info</strong> only.</p>
-                        <a href="#" class="down-right">Accept</a>
-                    </div>
-                </div>
-                <div class="card-product">
-                    <%= image_tag "logo.png" %>
-                    <div class="card-product-infos">
-                        <h2>Product name</h2>
-                        <p>Product description with <strong>relevant info</strong> only.</p>
-                        <a href="#" class="down-right">Accept</a>
-                    </div>
-                </div>
-            </div>
-            <div class="div-btn">
-                <% if current_user.offers.count == 0 %>
-                    <a class="btn btn-flat" href="/offers/new">Create your offer</a>
-                <% else %>
-                    <%= link_to edit_offer_path(current_user) do%>
-                        <p class="btn btn-flat">Edit</p>
+                <% if current_user.offers.first.reservations.where(status: "demand").count != 0 %>
+                    <% current_user.offers.first.reservations.where(status: "demand").first(2).each do |reservation| %>
+                        <div class="card-product">
+                            <% if reservation.offer.user.photo.attached? %>
+                                <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                            <% else %>
+                                <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                            <% end %>
+                            <div class="card-product-infos">
+                                <h2><%= reservation.offer.title %> from : <%= reservation.offer.user.name %></h2>
+                                <p><%= reservation.offer.description %></p>
+                                <p>Status : <%= reservation.status %></p>
+                                <div class="down-right">
+                                    <%= link_to "Decline",
+                                        reservation_path(reservation, status: "decline"),
+                                        method: :patch,
+                                        data: { confirm: "Are you sure you want to decline this amazing offer?" },
+                                        class: "choice" %>
+                                    <%= link_to "Accept",
+                                        reservation_path(reservation, status: "accept"),
+                                        method: :patch,
+                                        data: { confirm: "Are you sure?" },
+                                        class: 'choice' %>
+                                </div>
+                            </div>
+                        </div>
                     <% end %>
+                <% else %>
+                    <div class="card-product">
+                        <%= image_tag "logo.png" %>
+                        <div class="card-product-infos">
+                            <h2>No demand YET</h2>
+                            <p>Wait broo</p>
+                        </div>
+                    </div>
                 <% end %>
             </div>
-
+        <% end %>
+        <div class="div-btn">
+            <% if current_user.offers.count == 0 %>
+                <div class="card-product">
+                    <%= image_tag "logo.png" %>
+                    <div class="card-product-infos">
+                        <h2>No Doppem Profil Yet !</h2>
+                        <p></p>
+                        <a class="btn btn-flat" href="/offers/new">Create your Profil</a>
+                    </div>
+                </div>
+            <% else %>
+                <%= link_to edit_offer_path(current_user) do%>
+                    <p class="btn btn-flat">Edit</p>
+                <% end %>
+            <% end %>
         </div>
     </div>
+    <%# END - Partie reservation et historique %>
+</div>
 </div>

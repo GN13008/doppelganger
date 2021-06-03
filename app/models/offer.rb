@@ -7,4 +7,10 @@ class Offer < ApplicationRecord
   validates :disponibility, presence: true
   validates :localisation, presence: true
   validates :disponibility, inclusion: { in: ["Weekend", "Week", "Afterwork", "Every Day"], message: "Please select one of the disponibility" }
+  include PgSearch::Model
+  pg_search_scope :search_by_localisation,
+    against: [:localisation, :disponibility],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

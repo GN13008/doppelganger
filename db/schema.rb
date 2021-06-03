@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_123313) do
+ActiveRecord::Schema.define(version: 2021_06_03_132334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2021_06_03_123313) do
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.bigint "offer_id", null: false
     t.bigint "user_id", null: false
@@ -83,6 +92,8 @@ ActiveRecord::Schema.define(version: 2021_06_03_123313) do
     t.integer "age"
     t.text "bio"
     t.string "address"
+    t.string "body_type", default: "No body type yet"
+    t.string "height", default: "No height yet"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
