@@ -1,15 +1,20 @@
 class OffersController < ApplicationController
   def index
-    if params[:where].present?
+    if params[:where].present? && params[:when].present?
+      @offers = Offer.search_by_localisation(params[:where])
+      @offers = @offers.search_by_disponibility(params[:when])
+    elsif params[:when].present?
+      @offers = Offer.search_by_disponibility(params[:when])
+    elsif params[:where].present?
       @offers = Offer.search_by_localisation(params[:where])
     else
       @offers = Offer.all
-       @markers = @offers.geocoded.map do |offer|
-      {
-        lat: offer.latitude,
-        lng: offer.longitude
-      }
-      end
+    end
+    @markers = @offers.geocoded.map do |offer|
+    {
+      lat: offer.latitude,
+      lng: offer.longitude
+    }
     end
   end
 
