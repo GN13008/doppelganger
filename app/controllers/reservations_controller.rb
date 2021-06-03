@@ -8,15 +8,15 @@ class ReservationsController < ApplicationController
         redirect_to dashboard_path
     else
       render "offers#show"
-    end 
+    end
   end
   def update
     reservation = Reservation.find(params[:id])
     if @reservation.update(reservation_params)
       redirect_to dashboard_path
     else
-      render "pages#dashboard" 
-    end 
+      render "pages#dashboard"
+    end
   end
 
   def destroy
@@ -26,7 +26,8 @@ class ReservationsController < ApplicationController
   end
 
   private
+
   def reservation_params
-      params.require(:reservation).permit(:status, :start_date, :end_date)
-  end 
-end 
+    params.require(:reservation).permit(:status, :start_date, :end_date)
+  end
+end
