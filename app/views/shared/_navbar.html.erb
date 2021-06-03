@@ -11,8 +11,11 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item" id="navbar-button-padding">
-          <%= link_to "Your Dashboard", dashboard_path, class: "nav-link btn btn-flat" %>
+        <li class="nav-item" class="navbar-button-padding" id="main-btn">
+          <%= link_to "All doppel", 'offers?utf8=✓&where=&when=&button=#index' , class: "nav-link btn" %>
+        </li>
+        <li class="nav-item" class="navbar-button-padding" id="secondary-btn">
+          <%= link_to "Your Dashboard", dashboard_path, class: "nav-link btn" %>
         </li>
         <%# Try the bootstrap V5 dropdown %>
         <div class="dropdown dropstart">
