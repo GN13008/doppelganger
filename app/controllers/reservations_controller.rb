@@ -4,6 +4,7 @@ class ReservationsController < ApplicationController
     @offer = Offer.find(params[:offer_id])
     @reservation.offer = @offer
     @reservation.user = current_user
+    @reservation.status = "demand"
     if @reservation.save
         redirect_to dashboard_path
     else
@@ -11,8 +12,9 @@ class ReservationsController < ApplicationController
     end 
   end
   def update
-    reservation = Reservation.find(params[:id])
-    if @reservation.update(reservation_params)
+    @reservation = Reservation.find(params[:id])
+    @reservation.status = params[:status]
+    if @reservation.save
       redirect_to dashboard_path
     else
       render "pages#dashboard" 
@@ -22,6 +24,12 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
+    redirect_to dashboard_path
+  end
+
+  def cancel
+    @reservation = Reservation.find(params[:id])
+    @reservation.status = "canceled"
     redirect_to dashboard_path
   end
 
