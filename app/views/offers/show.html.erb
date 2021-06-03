@@ -39,19 +39,23 @@
         </div>
 
       </div>
+
+      
       <div class= "col-4 text-center">
+
         <div class="info-card">
           <h2>Informations:</h2>
-          
-           <%= simple_form_for [ @offer, @reservation ] do |f| %>
+           <%= simple_form_for([ @offer, @reservation ], remote: true) do |f| %>
             <%= f.input :start_date %>
             <%= f.input :end_date %>
             <div class="info-card-right">
             <ul>
-              <li><p>80$/h</p></li>
-              <li><p>3*80 = 160$</p></li>
-              <li><p>3*80 = 160$</p></li>
-              <li><p> Extras Uber: 40$</p></li>
+              <p id="price-h" class="d-inline"><%= @offer.price %></p>
+              <p class="d-inline">$/h</p>
+              
+              <%= javascript_pack_tag('_show_price_js') %>
+              <li><p id="number-days"></p></li>
+              <li><p id="price"></p></li>
             </ul>
             </div>
             
