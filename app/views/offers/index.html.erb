@@ -16,7 +16,7 @@
       <div class="col-6 mr-2px">
         <% @offers.each do |offer| %>
           <div class="card-product">
-            <% if offer.user.photo.attached? %>
+            <% if false %>
               <img src='<%= cl_image_path offer.user.photo.key, height: 300, crop: :fill %>' />
             <% else %>
               <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
