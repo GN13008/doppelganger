@@ -1,16 +1,9 @@
 class OffersController < ApplicationController
   def index
-    # params where: where:
-    if params[:where] == ""
-      @offers = Offer.all
-      @title = "All Result - #{@offers.count} doppels available"
+    if params[:where].present?
+      @offers = Offer.search_by_localisation(params[:where])
     else
-      @offers = Offer.where(localisation: params[:where])
-      if @offers.count == 0
-        @title = "Sorry, there are no doppel available in #{params[:where]}"
-      else
-        @title = "There are #{@offers.count} doppels available in #{params[:where]}"
-      end
+        @offers = Offer.all
     end
   end
 
