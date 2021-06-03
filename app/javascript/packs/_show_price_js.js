@@ -9,13 +9,11 @@ let array_start = document.getElementById("reservation_start_date_3i");
         let end_date_obj = array_end.selectedOptions;
         let end_date = end_date_obj[0].innerText;
         let total = parseInt(end_date) - parseInt(start_date);
-        console.log(total);
         const number_days = document.querySelector('#number-days');
         number_days.innerText = "jours: " + total;
         const price_h = document.querySelector('#price-h').innerText;
         const price = document.querySelector('#price');
         const prix = total * parseFloat(price_h) ;
-        console.log(prix)
         price.innerText = `prix: ${prix}$`;
     });
 });
