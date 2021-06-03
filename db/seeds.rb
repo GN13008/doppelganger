@@ -55,37 +55,37 @@ puts "Users creation finished"
 # Offers seeding
 puts "Creating 7 Offers"
 
-offer1 = Offer.new(localisation: '33 Quai des Belges, 13001 Marseille', disponibility: 'Weekend')
+offer1 = Offer.new(localisation: '33 Quai des Belges, 13001 Marseille', disponibility: 'Weekend', price: '50')
 offer1.user = karl
 offer1.save
 puts offer1.user.name
 
-offer2 = Offer.new(localisation: '3 Rue Alphonse Daudet, 13013 Marseille', disponibility: 'Week')
+offer2 = Offer.new(localisation: '3 Rue Alphonse Daudet, 13013 Marseille', disponibility: 'Week', price: '20')
 offer2.user = selma
 offer2.save
 puts offer2.user.name
 
-offer3 = Offer.new(localisation: '1 Rue Méry, 13002 Marseille', disponibility: 'Afterwork')
+offer3 = Offer.new(localisation: '1 Rue Méry, 13002 Marseille', disponibility: 'Afterwork', price: '30')
 offer3.user = adele
 offer3.save
 puts offer3.user.name
 
-offer4 = Offer.new(localisation: '1 Rue Pleney, 69001 Lyon', disponibility: 'Everyday')
+offer4 = Offer.new(localisation: '1 Rue Pleney, 69001 Lyon', disponibility: 'Everyday', price: '15')
 offer4.user = freebritney
 offer4.save
 puts offer4.user.name
 
-offer5 = Offer.new(localisation: 'Chemin de la Carlette, 66000 Perpignan', disponibility: 'After')
+offer5 = Offer.new(localisation: 'Chemin de la Carlette, 66000 Perpignan', disponibility: 'After', price: '45')
 offer5.user = marie
 offer5.save
 puts offer5.user.name
 
-offer6 = Offer.new(localisation: 'Plage des Elmes, 66650 Banyuls-sur-Mer', disponibility: 'Weekend')
+offer6 = Offer.new(localisation: 'Plage des Elmes, 66650 Banyuls-sur-Mer', disponibility: 'Weekend', price: '34')
 offer6.user = wolfgang
 offer6.save
 puts offer6.user.name
 
-offer7 = Offer.new(localisation: '7 Rue de France, 06000 Nice', disponibility: 'Week')
+offer7 = Offer.new(localisation: '7 Rue de France, 06000 Nice', disponibility: 'Week', price: '15')
 offer7.user = sailor
 offer7.save
 puts offer7.user.name
