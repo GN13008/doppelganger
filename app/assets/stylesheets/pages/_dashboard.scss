@@ -19,11 +19,14 @@
     }
 
     .down-right {
-        text-decoration: none;
-        color: #333333;
         position: absolute;
         right: 15px;
+    }
+
+    .choice {
         font-weight: bold;
+        text-decoration: none;
+        color: #333333;
     }
 
     .card-product {
