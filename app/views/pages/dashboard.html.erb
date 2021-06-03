@@ -67,6 +67,7 @@
                         <h2><%= reservation.offer.title %> from : <%= reservation.offer.user.name %></h2>
                         <p><%= reservation.offer.description %></p>
                         <p>Status : <%= reservation.status %></p>
+                        <%= link_to "Review", new_review_path, class: 'down-right choice' %>
                     </div>
                 </div>
             <% end %>
@@ -81,6 +82,7 @@
                         <h2><%= reservation.offer.title %> from : <%= reservation.offer.user.name %></h2>
                         <p><%= reservation.offer.description %></p>
                         <p>Status : <%= reservation.status %></p>
+                        <%= link_to "Review", new_review_path, class: 'down-right choice' %>
                     </div>
                 </div>
             <% end %>
@@ -95,6 +97,7 @@
                         <h2><%= reservation.offer.title %> from : <%= reservation.offer.user.name %></h2>
                         <p><%= reservation.offer.description %></p>
                         <p>Status : <%= reservation.status %></p>
+                        <%= link_to "Review", new_review_path, class: 'down-right choice' %>
                     </div>
                 </div>
             <% end %>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :reservations, only: [ :create ]
   end
   resources :reservations, only: [ :update, :delete ]
-  resources :reviews, only: [ :create ]
+  resources :reviews, only: [ :create, :new ]
 
   get "/dashboard", to: "pages#dashboard", as: :dashboard
 end
