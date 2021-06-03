@@ -120,34 +120,35 @@
     </div>
     <%# START - Partie reservation et historique %>
     <div class="missions">
-        <div class="validated">
-            <h3 class="py-3">Your next missions</h3>
-            <% if current_user.offers.first.reservations.where(status: "accept").count != 0 %>
-                <% current_user.offers.first.reservations.where(status: "accept").first(2).each do |reservation| %>
+        <h3 class="py-3">Your next missions</h3>
+        <% unless current_user.offers == [] %>
+            <div class="validated">
+                <% if current_user.offers.first.reservations.where(status: "accept").count != 0 %>
+                    <% current_user.offers.first.reservations.where(status: "accept").first(2).each do |reservation| %>
+                        <div class="card-product">
+                            <% if reservation.offer.user.photo.attached? %>
+                                <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                            <% else %>
+                                <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                            <% end %>
+                            <div class="card-product-infos">
+                                <h2><%= reservation.offer.title %> from : <%= reservation.offer.user.name %></h2>
+                                <p><%= reservation.offer.description %></p>
+                                <p>Status : <%= reservation.status %></p>
+                            </div>
+                        </div>
+                    <% end %>
+                <% else %>
                     <div class="card-product">
-                        <% if reservation.offer.user.photo.attached? %>
-                            <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                        <% else %>
-                            <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                        <% end %>
+                        <%= image_tag "logo.png" %>
                         <div class="card-product-infos">
-                            <h2><%= reservation.offer.title %> from : <%= reservation.offer.user.name %></h2>
-                            <p><%= reservation.offer.description %></p>
-                            <p>Status : <%= reservation.status %></p>
+                            <h2>No @reservations Yet !</h2>
+                            <p>Perhaps you should change your profil ?</p>
                         </div>
                     </div>
                 <% end %>
-            <% else %>
-                <div class="card-product">
-                    <%= image_tag "logo.png" %>
-                    <div class="card-product-infos">
-                        <h2>No @reservations Yet !</h2>
-                        <p>Perhaps you should change your profil ?</p>
-                    </div>
-                </div>
-            <% end %>
-        </div>
-        <h3 class="py-3">These missions are  waiting for you!</h3>
+            </div>
+            <h3 class="py-3">These missions are  waiting for you!</h3>
             <div class="waiting">
                 <% if current_user.offers.first.reservations.where(status: "demand").count != 0 %>
                     <% current_user.offers.first.reservations.where(status: "demand").first(2).each do |reservation| %>
@@ -186,9 +187,17 @@
                     </div>
                 <% end %>
             </div>
+        <% end %>
         <div class="div-btn">
             <% if current_user.offers.count == 0 %>
-                <a class="btn btn-flat" href="/offers/new">Create your offer</a>
+                <div class="card-product">
+                    <%= image_tag "logo.png" %>
+                    <div class="card-product-infos">
+                        <h2>No Doppem Profil Yet !</h2>
+                        <p></p>
+                        <a class="btn btn-flat" href="/offers/new">Create your Profil</a>
+                    </div>
+                </div>
             <% else %>
                 <%= link_to edit_offer_path(current_user) do%>
                     <p class="btn btn-flat">Edit</p>
@@ -197,5 +206,5 @@
         </div>
     </div>
     <%# END - Partie reservation et historique %>
-    </div>
+</div>
 </div>
