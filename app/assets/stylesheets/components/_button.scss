@@ -17,10 +17,24 @@
     color: white;
   }
 
-  .search-transparent-btn {
-    background-color: transparent;
-}
+  .btn-search .search-transparent-btn {
+    background-color:#526d6e;
+    right: -130px;
+    border-radius: 25px;
+    top: 1px;
+    height: 3.5rem;
+  }
 .search-transparent-btn:hover {
-  background-color: transparent;
-  color: black;
+  opacity: 0.8;
+  color:white;
+  filter: contrast(1.75);
+
+}
+.dropdown-toggle2{
+  background-color: #c3c3c3;
+  right: -130px;
+  border-radius: 25px;
+  top: 1px;
+  height: 3.5rem;
+  width: 600px;
 }
