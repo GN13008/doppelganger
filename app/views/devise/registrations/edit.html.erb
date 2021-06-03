@@ -46,6 +46,8 @@
               <%= f.input :email, required: true, autofocus: true %>
               <%= f.input :name %>
               <%= f.input :age %>
+              <%= f.input :body_type %>
+              <%= f.input :height %>
               <%= f.input :photo, as: :file %>
 
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
