@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2021_06_03_132334) do
     t.string "title", default: "Hello"
     t.text "description", default: "No description Yet"
     t.string "price", default: "No price Yet"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
 

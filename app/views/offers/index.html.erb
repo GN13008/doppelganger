@@ -10,23 +10,31 @@
     </div>
     </form>
   </div>
+  <!-- Offres de doppelgangers -->
     <h1><%= @title %></h1>
-    <div>
-    <% @offers.each do |offer| %>
-      <div class="card-product">
-        <% if offer.user.photo.attached? %>
-          <img src='<%= cl_image_path offer.user.photo.key, height: 300, crop: :fill %>' />
-        <% else %>
-          <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-        <% end %> 
-        <div class="card-product-infos">
-          <h2><%= offer.user.name %></h2>
-          <p>localisation: <strong><%= offer.localisation %></strong></p>
-          <p>disponibility: <strong><%= offer.disponibility %></strong></p>
-          <p class="index-card-link"><%= link_to  "see this offer",offer_path(offer) %></p>
-        </div>
+    <div class="d-flex justify-content-center">
+      <div class="col-6 mr-2px">
+        <% @offers.each do |offer| %>
+          <div class="card-product">
+            <% if offer.user.photo.attached? %>
+              <img src='<%= cl_image_path offer.user.photo.key, height: 300, crop: :fill %>' />
+            <% else %>
+              <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+            <% end %>
+            <div class="card-product-infos">
+              <h2><%= offer.user.name %></h2>
+              <p>localisation: <strong><%= offer.localisation %></strong></p>
+              <p>disponibility: <strong><%= offer.disponibility %></strong></p>
+              <p class="index-card-link"><%= link_to  "see this offer",offer_path(offer) %></p>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+      <!-- Jsuis la map Jsuis la MAP -->
+      <div id="map"
+        style="width: 50%; height: 700px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" class="mt-3 mx-4">
+       </div>
     </div>
-  
 </div>

@@ -8,16 +8,19 @@ class OffersController < ApplicationController
   end
 
   def new
-    @offer = Offer.new 
+    @offer = Offer.new
   end
+
   def show
     @offer = Offer.find(params[:id])
     @reviews = @offer.reviews
     @reservation = Reservation.new
   end
+
   def edit
     @offer = Offer.find(User.find(params[:id]).offer_ids.first)
   end
+
   def update
     @offer = Offer.find(params[:id])
     @offer.update(offer_params)
@@ -36,7 +39,7 @@ class OffersController < ApplicationController
       redirect_to offers_path
     else
       render :new
-    end 
+    end
   end
 
   private

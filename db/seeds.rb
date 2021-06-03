@@ -75,7 +75,7 @@ offer4.user = freebritney
 offer4.save
 puts offer4.user.name
 
-offer5 = Offer.new(localisation: 'Chemin de la Carlette, 66000 Perpignan', disponibility: 'After', price: '45')
+offer5 = Offer.new(localisation: 'Chemin de la Carlette, 66000 Perpignan', disponibility: 'Afterwork', price: '45')
 offer5.user = marie
 offer5.save
 puts offer5.user.name
