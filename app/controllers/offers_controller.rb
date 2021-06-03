@@ -3,7 +3,13 @@ class OffersController < ApplicationController
     if params[:where].present?
       @offers = Offer.search_by_localisation(params[:where])
     else
-        @offers = Offer.all
+      @offers = Offer.all
+       @markers = @offers.geocoded.map do |offer|
+      {
+        lat: offer.latitude,
+        lng: offer.longitude
+      }
+      end
     end
   end
 
