@@ -4,6 +4,14 @@ class OffersController < ApplicationController
     if params[:where] == ""
       @offers = Offer.all
       @title = "All Result - #{@offers.count} doppels available"
+      @markers = @offers.geocoded.map do |offer|
+        {
+          lat: offer.latitude,
+          lng: offer.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { offer: offer }),
+          image_url: helpers.asset_url('logo.png')
+        }
+      end
     else
       @offers = Offer.where(localisation: params[:where])
       if @offers.count == 0
@@ -15,16 +23,19 @@ class OffersController < ApplicationController
   end
 
   def new
-    @offer = Offer.new 
+    @offer = Offer.new
   end
+
   def show
     @offer = Offer.find(params[:id])
     @reviews = @offer.reviews
     @reservation = Reservation.new
   end
+
   def edit
     @offer = Offer.find(User.find(params[:id]).offer_ids.first)
   end
+
   def update
     @offer = Offer.find(params[:id])
     @offer.update(offer_params)
@@ -43,7 +54,7 @@ class OffersController < ApplicationController
       redirect_to offers_path
     else
       render :new
-    end 
+    end
   end
 
   private
