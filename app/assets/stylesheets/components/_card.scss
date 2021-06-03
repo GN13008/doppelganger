@@ -4,26 +4,27 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     margin: 20px 20px;
   }
-  
+
   .card-trip > img {
-    height: 200px;
+    height: 350px;
     width: 100%;
     object-fit: cover;
+    object-position: top;
   }
-  
+
   .card-trip h2 {
     font-size: 16px;
     font-weight: bold;
     margin: 0;
   }
-  
+
   .card-trip p {
     font-size: 12px;
     opacity: .7;
     margin: 0;
   }
-  
-  
+
+
   .card-trip .card-trip-infos {
     padding: 16px;
     display: flex;
@@ -31,7 +32,7 @@
     align-items: flex-end;
     position: relative;
   }
-  
+
   .card-trip-infos .card-trip-user {
     position: absolute;
     right: 16px;
@@ -50,19 +51,20 @@
     align-items: center;
     margin: 24px;
   }
-  
+
   .card-product img {
     height: 100%;
     width: 120px;
     object-fit: cover;
+    object-position: top;
   }
-  
+
   .card-product h2 {
     font-size: 16px;
     font-weight: bold;
     margin: 0;
   }
-  
+
   .card-product p {
     font-size: 12px;
     line-height: 1.4;
@@ -70,11 +72,11 @@
     margin-bottom: 0;
     margin-top: 8px;
   }
-  
+
   .card-product .card-product-infos {
     padding: 16px;
-  } 
-  
+  }
+
   .index-card-link a {
     text-decoration: none;
     color: #111111;
@@ -82,5 +84,4 @@
     right: 20px;
   }
 
-  
-  
+
