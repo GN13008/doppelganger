@@ -3,7 +3,7 @@
     <div class="search-form-control form-group">
           <%= simple_form_for(@offer) do |f| %>
             <%= f.input :title %>
-            <%= f.input :disponibility %>
+            <%= f.input :disponibility, collection: ["Weekend", "Week", "Afterwork", "Every Day"] %>
             <%= f.input :description %>
             <%= f.input :localisation %>
             <%= f.input :price, label: 'Price/h' %>
@@ -11,3 +11,4 @@
           <% end %>
     </div>
 </div>
+
