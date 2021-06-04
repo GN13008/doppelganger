@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   def new
+    @reservation = Reservation.find(params[:reservation_id])
     @review = Review.new
   end
   
@@ -7,7 +8,6 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @reservation = Reservation.find(params[:reservation_id])
     @review.reservation = @reservation
-    @review.user = current_user
     if @reservation.save
         redirect_to offer_path(@reservation.offer), notice: "review created"
     else

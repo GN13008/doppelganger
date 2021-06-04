@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Give a review</h1>
     <div class="search-form-control form-group">
-          <%= simple_form_for(@review) do |f| %>
+          <%= simple_form_for [@reservation, @review] do |f| %>
             <%= f.input :content %>
             <%= f.input :rating, label: 'Rating between 0 and 5' %>
             <%= f.submit class:"btn-flat", id:"update-btn"%>
