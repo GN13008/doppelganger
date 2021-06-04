@@ -30,7 +30,7 @@
         <div class="reviews">
           <h2>Reviews</h2>
           <% if @offer.reviews.count != 0 %>
-            <% @offer.reviews.first(5).each do |review| %>
+            <% @offer.reviews.last(5).each do |review| %>
               <div class= "reviews-cards">
                 <% if review.reservation.user.photo.attached? %>
                   <%= cl_image_tag review.reservation.user.photo.key %>
