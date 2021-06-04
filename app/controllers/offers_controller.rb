@@ -39,15 +39,16 @@ class OffersController < ApplicationController
   end
 
   def destroy
-    @offer = Offer.find(params[:id])
+    @offer = Offer.find(User.find(params[:id]).offer_ids.first)
     @offer.destroy
+    redirect_to dashboard_path
   end
 
   def create
     @offer = Offer.new(offer_params)
     @offer.user = current_user
     if @offer.save!
-      redirect_to offers_path
+      redirect_to dashboard_path
     else
       render :new
     end

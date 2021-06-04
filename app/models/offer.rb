@@ -2,7 +2,7 @@ class Offer < ApplicationRecord
   geocoded_by :localisation
   after_validation :geocode, if: :will_save_change_to_localisation?
   belongs_to :user
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
   has_many :reviews, through: :reservations
   validates :disponibility, presence: true
   validates :localisation, presence: true
