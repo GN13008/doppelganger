@@ -129,14 +129,13 @@
                 <% if current_user.offers.first.reservations.where(status: "accept").count != 0 %>
                     <% current_user.offers.first.reservations.where(status: "accept").last(2).each do |reservation| %>
                         <div class="card-product">
-                            <% if reservation.offer.user.photo.attached? %>
-                                <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                            <% if reservation.user.photo.attached? %>
+                                <%= cl_image_tag reservation.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                             <% else %>
                                 <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                             <% end %>
                             <div class="card-product-infos">
-                                <h2><%= reservation.offer.title %> from : <%= reservation.offer.user.name %></h2>
-                                <p><%= reservation.offer.description %></p>
+                                <h2>You have a reservation from : <%= reservation.user.name %></h2>
                                 <p>Status : <%= reservation.status %></p>
                             </div>
                         </div>
@@ -156,14 +155,13 @@
                 <% if current_user.offers.first.reservations.where(status: "demand").count != 0 %>
                     <% current_user.offers.first.reservations.where(status: "demand").last(2).each do |reservation| %>
                         <div class="card-product">
-                            <% if reservation.offer.user.photo.attached? %>
-                                <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                            <% if reservation.user.photo.attached? %>
+                                <%= cl_image_tag reservation.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                             <% else %>
                                 <%= image_tag "logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                             <% end %>
                             <div class="card-product-infos">
-                                <h2><%= reservation.offer.title %> from : <%= reservation.offer.user.name %></h2>
-                                <p><%= reservation.offer.description %></p>
+                                <h2>You have a reservation from : <%= reservation.user.name %></h2>
                                 <p>Status : <%= reservation.status %></p>
                                 <div class="down-right">
                                     <%= link_to "Decline",
