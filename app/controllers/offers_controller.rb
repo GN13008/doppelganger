@@ -26,6 +26,14 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     @reviews = @offer.reviews
     @reservation = Reservation.new
+    @rating_average = "No reviews Yet"
+    if @offer.reviews.count != 0
+      @rating_average = 0
+      @offer.reviews.each do |review|
+        @rating_average += review.rating
+      end
+      @rating_average = @rating_average.fdiv(@offer.reviews.count) 
+    end
   end
 
   def edit

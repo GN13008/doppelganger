@@ -5,6 +5,8 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin: 8px 0;
+  position: relative;
 }
 
 .reviews-cards img {
@@ -16,7 +18,7 @@
 .reviews-cards h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
+  margin: 8px 0 !important;
 }
 
 .reviews-cards p {
@@ -28,4 +30,11 @@
 }
 .reviews-cards .review-card {
   padding: 16px;
+}
+
+.rating{
+  position: absolute;
+  right: 15px;
+  top :10px;
+  color: #EB7316
 }

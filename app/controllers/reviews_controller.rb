@@ -8,10 +8,10 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @reservation = Reservation.find(params[:reservation_id])
     @review.reservation = @reservation
-    if @reservation.save
-        redirect_to offer_path(@reservation.offer), notice: "review created"
+    if @review.save
+      redirect_to offer_path(@reservation.offer), notice: "review created"
     else
-      render "pages#dashboard", alert: "try again dude !"
+      redirect_to dashboard_path, alert: "Save review not working !"
     end 
   end
 
