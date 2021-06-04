@@ -54,61 +54,68 @@ pierrededubai = User.create!(address: '192 place burjkhalifa Dubai', bio:'un bar
 pierrededubaimage = URI.open("https://res.cloudinary.com/dqc8dpu1n/image/upload/v1622628942/pk5n4dap7dnsoeed7f3izmfny1jk.png")
 pierrededubai.photo.attach(io: pierrededubaimage, filename: 'v1622628942pk5n4dap7dnsoeed7f3izmfny1jk.png')
 
-guillaume = User.create(address: '8 avenue du pardo, 13000 Marseille', bio:'26 ans dev senior a creer google facebook instagram, numero 1 dans tout les domaines', email: 'guillaume.negro@gmail.com',password: 'password', name: 'Guillaume Negro', age: '26', body_type:'SEX SYMBOL', height:'1M75')
+guillaume = User.create(address: '8 avenue du pardo, 13000 Marseille', bio:'26 ans dev senior a creer google facebook instagram, numero 1 dans tout les domaines', email: 'guillaume@gmail.com',password: 'password', name: 'Guillaume Negro', age: '26', body_type:'SEX SYMBOL', height:'1M75')
 guillaumeimage = URI.open("https://res.cloudinary.com/dqc8dpu1n/image/upload/v1622555994/wdqws8ehto4i9van7uxjeiy3ntxr.jpg")
 guillaume.photo.attach(io: guillaumeimage, filename: 'v1622555994/wdqws8ehto4i9van7uxjeiy3ntxr.jpg')
+
+julien = User.create(address: '8 avenue du pardo, 13000 Marseille', bio:'lalalaa', email: 'julienlinzas@gmail.com',password: 'password', name: 'Julien Linzas', age: '26', body_type:'SEX SYMBOL', height:'1M75')
+julienimage = URI.open("https://res.cloudinary.com/dqc8dpu1n/image/upload/v1622803583/ie9utgd01w17ym82okz1v17h6ygb.png")
+julien.photo.attach(io: julienimage, filename: 'v1622803583/ie9utgd01w17ym82okz1v17h6ygb.png')
 
 
 puts "Users creation finished"
 
 
-
-
 # Offers seeding
 puts "Creating 9 Offers"
 
-offer1 = Offer.new(localisation: '33 Quai des Belges, 13001 Marseille', disponibility: 'Weekend', price: '50')
+offer1 = Offer.new(title: "Hi my name is Karl", description: "", localisation: '33 Quai des Belges, 13001 Marseille', disponibility: 'Weekend', price: '50')
 offer1.user = karl
 offer1.save
 puts offer1.user.name
 
-offer2 = Offer.new(localisation: '3 Rue Alphonse Daudet, 13013 Marseille', disponibility: 'Week', price: '20')
+offer2 = Offer.new(title: "Hi my name is Selma", description: "", localisation: '3 Rue Alphonse Daudet, 13013 Marseille', disponibility: 'Week', price: '20')
 offer2.user = selma
 offer2.save
 puts offer2.user.name
 
-offer3 = Offer.new(localisation: '1 Rue Méry, 13002 Marseille', disponibility: 'Afterwork', price: '30')
+offer3 = Offer.new(title: "Never mind I find Someone like youuuuuu", description: "", localisation: '1 Rue Méry, 13002 Marseille', disponibility: 'Afterwork', price: '30')
 offer3.user = adele
 offer3.save
 puts offer3.user.name
 
-offer4 = Offer.new(localisation: '1 Rue Pleney, 69001 Lyon', disponibility: 'Everyday', price: '15')
+offer4 = Offer.new(title: "Bribri", description: "Physically, Jessica is in pretty good shape. She is average-height with olive skin, black hair and black eyes. She has a tattoo of Donald Trump on her left shoulder.", localisation: '1 Rue Pleney, 69001 Lyon', disponibility: 'Everyday', price: '15')
 offer4.user = freebritney
 offer4.save
 puts offer4.user.name
 
-offer5 = Offer.new(localisation: 'Chemin de la Carlette, 66000 Perpignan', disponibility: 'Afterwork', price: '45')
+offer5 = Offer.new(title: "Hi my name is Marie", description: "Allez l'OM", localisation: 'Chemin de la Carlette, 66000 Perpignan', disponibility: 'Afterwork', price: '45')
 offer5.user = marie
 offer5.save
 puts offer5.user.name
 
-offer6 = Offer.new(localisation: 'Plage des Elmes, 66650 Banyuls-sur-Mer', disponibility: 'Weekend', price: '34')
+offer6 = Offer.new(title: "Hi my name is wolfgang", description: "This is an amazing description", localisation: 'Plage des Elmes, 66650 Banyuls-sur-Mer', disponibility: 'Weekend', price: '34')
 offer6.user = wolfgang
 offer6.save
 puts offer6.user.name
 
-offer7 = Offer.new(localisation: '7 Rue de France, 06000 Nice', disponibility: 'Week', price: '15')
+offer7 = Offer.new(title: "Hi my name is Sailot", description: "Sailor Sailor Sailor lalalalalalala", localisation: '7 Rue de France, 06000 Nice', disponibility: 'Week', price: '15')
 offer7.user = sailor
 offer7.save
 puts offer7.user.name
 
-offer8 = Offer.new(localisation: '1 Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai - Émirats arabes unis', disponibility: 'Week', price: '1500000')
+offer8 = Offer.new(title: "Hi, it's Pierro From Dubai", description: "un barman formidable, un trader hors pair tout simplement un homme incroyable", localisation: '1 Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai - Émirats arabes unis', disponibility: 'Week', price: '1500000')
 offer8.user = pierrededubai
 offer8.save
 puts offer8.user.name
 
-offer9 = Offer.new(localisation: 'InterContinental Dubai Marina - Bay Central, Dubai Marina, Jumeirah Beach Residence - Dubai - Émirats Arabes Unis', disponibility: 'Afterwork', price: '30')
+offer9 = Offer.new(title: "Hello, I am Guillaume", description: "Senior Dev of 26 years. I own multiple company like Google Facebook Instagram. I am also number one in all category. If you have a problem with optionnal exo of le wagon do not hesitates", localisation: 'InterContinental Dubai Marina - Bay Central, Dubai Marina, Jumeirah Beach Residence - Dubai - Émirats Arabes Unis', disponibility: 'Afterwork', price: '30')
 offer9.user = guillaume
+offer9.save
+puts offer9.user.name
+
+offer9 = Offer.new(title: "Hello, I am Julien, The best TA of the world", description: "Hitman by night, TA by day, I think i am the best TA of the world but stephane is against this idea i do not know why", localisation: 'Palm Jumeirah - The Palm Jumeirah - Dubai - Émirats arabes unis', disponibility: 'Afterwork', price: '30')
+offer9.user = julien
 offer9.save
 puts offer9.user.name
 
