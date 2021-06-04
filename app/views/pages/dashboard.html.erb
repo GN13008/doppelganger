@@ -6,7 +6,7 @@
         <h3 class="py-3">Your reservations</h3>
         <div class="future">
             <% if (current_user.reservations.where(status: "demand").count != 0 || current_user.reservations.where(status: "accept").count != 0) %>
-                <% current_user.reservations.where(status: "demand").first(2).each do |reservation| %>
+                <% current_user.reservations.where(status: "demand").last(2).each do |reservation| %>
                     <div class="card-product">
                         <% if reservation.offer.user.photo.attached? %>
                             <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 <% end %>
-                <% current_user.reservations.where(status: "accept").first(2).each do |reservation| %>
+                <% current_user.reservations.where(status: "accept").last(2).each do |reservation| %>
                     <div class="card-product">
                         <% if reservation.offer.user.photo.attached? %>
                             <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -56,7 +56,7 @@
         </div>
         <h3 class="py-3">Your past Doppel bookings</h3>
         <% if (current_user.reservations.where(status: "canceled").count != 0 || current_user.reservations.where(status: "passed").count != 0 || current_user.reservations.where(status: "decline").count != 0) %>
-            <% current_user.reservations.where(status: "passed").first(2).each do |reservation| %>
+            <% current_user.reservations.where(status: "passed").last(2).each do |reservation| %>
                 <div class="card-product">
                     <% if reservation.offer.user.photo.attached? %>
                         <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
             <% end %>
-            <% current_user.reservations.where(status: "decline").first(2).each do |reservation| %>
+            <% current_user.reservations.where(status: "decline").last(2).each do |reservation| %>
                 <div class="card-product">
                     <% if reservation.offer.user.photo.attached? %>
                         <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -86,7 +86,7 @@
                     </div>
                 </div>
             <% end %>
-            <% current_user.reservations.where(status: "canceled").first(2).each do |reservation| %>
+            <% current_user.reservations.where(status: "canceled").last(2).each do |reservation| %>
                 <div class="card-product">
                     <% if reservation.offer.user.photo.attached? %>
                         <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -127,7 +127,7 @@
         <% unless current_user.offers == [] %>
             <div class="validated">
                 <% if current_user.offers.first.reservations.where(status: "accept").count != 0 %>
-                    <% current_user.offers.first.reservations.where(status: "accept").first(2).each do |reservation| %>
+                    <% current_user.offers.first.reservations.where(status: "accept").last(2).each do |reservation| %>
                         <div class="card-product">
                             <% if reservation.offer.user.photo.attached? %>
                                 <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -154,7 +154,7 @@
             <h3 class="py-3">These missions are  waiting for you!</h3>
             <div class="waiting">
                 <% if current_user.offers.first.reservations.where(status: "demand").count != 0 %>
-                    <% current_user.offers.first.reservations.where(status: "demand").first(2).each do |reservation| %>
+                    <% current_user.offers.first.reservations.where(status: "demand").last(2).each do |reservation| %>
                         <div class="card-product">
                             <% if reservation.offer.user.photo.attached? %>
                                 <%= cl_image_tag reservation.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
