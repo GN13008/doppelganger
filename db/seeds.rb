@@ -55,12 +55,20 @@ pierrededubaimage = URI.open("https://res.cloudinary.com/dqc8dpu1n/image/upload/
 pierrededubai.photo.attach(io: pierrededubaimage, filename: 'v1622628942pk5n4dap7dnsoeed7f3izmfny1jk.png')
 
 guillaume = User.create(address: '8 avenue du pardo, 13000 Marseille', bio:'26 ans dev senior a creer google facebook instagram, numero 1 dans tout les domaines', email: 'guillaume@gmail.com',password: 'password', name: 'Guillaume Negro', age: '26', body_type:'SEX SYMBOL', height:'1M75')
-guillaumeimage = URI.open("https://res.cloudinary.com/dqc8dpu1n/image/upload/v1622555994/wdqws8ehto4i9van7uxjeiy3ntxr.jpg")
-guillaume.photo.attach(io: guillaumeimage, filename: 'v1622555994/wdqws8ehto4i9van7uxjeiy3ntxr.jpg')
+guillaumeimage = URI.open("https://res.cloudinary.com/dqc8dpu1n/image/upload/v1622808864/yxil3efp5nhcmj1deootcqixbffk.png")
+guillaume.photo.attach(io: guillaumeimage, filename: 'v1622808864/yxil3efp5nhcmj1deootcqixbffk.png')
 
 julien = User.create(address: '8 avenue du pardo, 13000 Marseille', bio:'lalalaa', email: 'julienlinzas@gmail.com',password: 'password', name: 'Julien Linzas', age: '26', body_type:'SEX SYMBOL', height:'1M75')
 julienimage = URI.open("https://res.cloudinary.com/dqc8dpu1n/image/upload/v1622803583/ie9utgd01w17ym82okz1v17h6ygb.png")
 julien.photo.attach(io: julienimage, filename: 'v1622803583/ie9utgd01w17ym82okz1v17h6ygb.png')
+
+ibra = User.create(address: '8 avenue du pardo, 13000 Marseille', bio:'lalalaa', email: 'ibra@gmail.com',password: 'password', name: 'Ibra', age: '26', body_type:'SEX SYMBOL', height:'1M75')
+ibraimage = URI.open("https://res.cloudinary.com/dqc8dpu1n/image/upload/v1622809044/Ibrahim-2_f5a84o.jpg")
+ibra.photo.attach(io: ibraimage, filename: 'v1622809044/Ibrahim-2_f5a84o.jpg')
+
+flo = User.create(address: '8 avenue du pardo, 13000 Marseille', bio:'lalalaa', email: 'flo@gmail.com',password: 'password', name: 'Flo', age: '26', body_type:'SEX SYMBOL', height:'1M22')
+floimage = URI.open("https://res.cloudinary.com/dqc8dpu1n/image/upload/v1622808064/bbwkncuxz4eha0dm5jvoq0ny0mxn.jpg")
+flo.photo.attach(io: floimage, filename: 'v1622808064/bbwkncuxz4eha0dm5jvoq0ny0mxn.jpg')
 
 
 puts "Users creation finished"
@@ -104,19 +112,29 @@ offer7.user = sailor
 offer7.save
 puts offer7.user.name
 
-offer8 = Offer.new(title: "Hi, it's Pierro From Dubai", description: "un barman formidable, un trader hors pair tout simplement un homme incroyable", localisation: '1 Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai - Émirats arabes unis', disponibility: 'Week', price: '1500000')
+offer8 = Offer.new(title: "Hi, it's Pierro From Dubai", description: "a wonderful bartender, an outstanding trader, quite simply an incredible man, also a co founder of Session of course", localisation: '1 Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai - Émirats arabes unis', disponibility: 'Afterwork', price: '1500000')
 offer8.user = pierrededubai
 offer8.save
 puts offer8.user.name
 
-offer9 = Offer.new(title: "Hello, I am Guillaume", description: "Senior Dev of 26 years. I own multiple company like Google Facebook Instagram. I am also number one in all category. If you have a problem with optionnal exo of le wagon do not hesitates", localisation: 'InterContinental Dubai Marina - Bay Central, Dubai Marina, Jumeirah Beach Residence - Dubai - Émirats Arabes Unis', disponibility: 'Afterwork', price: '30')
+offer9 = Offer.new(title: "Hello, I am Guillaume", description: "Senior Dev of 26 years. I own multiple company like Google Facebook Instagram and of course Session. I am also number one in all category. If you have a problem with optionnal exo of le wagon do not hesitates", localisation: 'The Walk - Dubai Marina - Dubai - Émirats arabes unis', disponibility: 'Afterwork', price: '30')
 offer9.user = guillaume
 offer9.save
 puts offer9.user.name
 
-offer9 = Offer.new(title: "Hello, I am Julien, The best TA of the world", description: "Hitman by night, TA by day, I think i am the best TA of the world but stephane is against this idea i do not know why", localisation: 'Palm Jumeirah - The Palm Jumeirah - Dubai - Émirats arabes unis', disponibility: 'Afterwork', price: '30')
-offer9.user = julien
-offer9.save
-puts offer9.user.name
+offer10 = Offer.new(title: "Hello, I am Julien, The best TA of the world", description: "Hitman by night, TA by day, I think i am the best TA of the world but stephane is against this idea i do not know why", localisation: 'Palm Jumeirah - The Palm Jumeirah - Dubai - Émirats arabes unis', disponibility: 'Afterwork', price: '30')
+offer10.user = julien
+offer10.save
+puts offer10.user.name
+
+offer11 = Offer.new(title: "Hello, I am Ibra", description: "Heeeeeeelooooooowwww I am Ibra from Dubai, Web Senior Dev, I earn a lot of money after create an app call Session with my TEAM", localisation: 'Al BarshaAl Barsha South - Dubai - Émirats arabes unis', disponibility: 'Afterwork', price: '8000')
+offer11.user = ibra
+offer11.save
+puts offer11.user.name
+
+offer12 = Offer.new(title: "Hello, I am Fida allias Flo de dubai", description: "Hi this is Fida. Leave in Dubai, co owner of Session an amazing app with 5 billions", localisation: 'Cluster K - Jumeirah Lakes TowersJLT Cluster K - Dubai - Émirats arabes unis', disponibility: 'Afterwork', price: '30')
+offer12.user = flo
+offer12.save
+puts offer12.user.name
 
 puts "Offers creation finished"
